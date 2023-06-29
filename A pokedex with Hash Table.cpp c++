@@ -3,8 +3,8 @@
 
 struct Pokemon
 {
-    char name[50]; // nome do Pokémon
-    int id;        // número de identificação do Pokémon
+    char name[50]; // nome do PokÃ©mon
+    int id;        // nÃºmero de identificaÃ§Ã£o do PokÃ©mon
     int status;    // 0: vazio, 1: ocupado, 2: removido
 };
 
@@ -28,7 +28,7 @@ public:
         table = new Pokemon[size];
         for (int i = 0; i < size; i++)
         {
-            table[i].status = 0; // marca todas as posições como vazias
+            table[i].status = 0; // marca todas as posiÃ§Ãµes como vazias
         }
     }
 
@@ -50,7 +50,7 @@ public:
 
         strncpy(table[hash].name, name, sizeof(table[hash].name));
         table[hash].id = id;
-        table[hash].status = 1; // marca a posição como ocupada
+        table[hash].status = 1; // marca a posiÃ§Ã£o como ocupada
     }
 
     Pokemon* search(int id)
@@ -62,14 +62,14 @@ public:
         {
             if (table[hash].status == 1 && table[hash].id == id)
             {
-                return &table[hash]; // retorna o ponteiro para o Pokémon encontrado
+                return &table[hash]; // retorna o ponteiro para o PokÃ©mon encontrado
             }
 
             i++;
             hash = hashFunction(id, i);
         }
 
-        return 0; // Pokémon não encontrado
+        return 0; // PokÃ©mon nÃ£o encontrado
     }
 
     void remove(int id)
@@ -77,7 +77,7 @@ public:
         Pokemon* pokemon = search(id);
         if (pokemon != 0)
         {
-            pokemon->status = 2; // marca a posição como removida
+            pokemon->status = 2; // marca a posiÃ§Ã£o como removida
         }
     }
 
@@ -96,7 +96,7 @@ public:
         }
     }
 
-    Pokemon* getTable() // Função para obter o ponteiro table
+    Pokemon* getTable() // FunÃ§Ã£o para obter o ponteiro table
     {
         return table;
     }
